@@ -5,6 +5,10 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Represents one selectable game character
+ * @author jared.pearson
+ */
 public class GameCharacter {
 	private static final Map<String, GameCharacter> CHARACTERS = initializeCharacters();
 	private String name;

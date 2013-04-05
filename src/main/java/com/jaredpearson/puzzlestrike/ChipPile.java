@@ -1,5 +1,9 @@
 package com.jaredpearson.puzzlestrike;
 
+/**
+ * Represents a set of chips
+ * @author jared.pearson
+ */
 public class ChipPile {
 	private static final Chip GEM1 = new GenericChip("1 Gem");
 	private static final Chip CRASH = new GenericChip("Crash Gem");
