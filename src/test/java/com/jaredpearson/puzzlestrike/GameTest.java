@@ -19,7 +19,6 @@ public class GameTest {
 		
 		game.start();
 		
-		Assert.assertNotNull("Expected to be at an active state after the game starts", game.getActiveState());
 		Assert.assertNotNull("Expected to have an active player after the game starts", game.getActivePlayerContext());
 	}
 	
