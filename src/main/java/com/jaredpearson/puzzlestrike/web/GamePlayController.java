@@ -5,11 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jaredpearson.puzzlestrike.Action;
 import com.jaredpearson.puzzlestrike.Game;
 import com.jaredpearson.puzzlestrike.GameManager;
 import com.jaredpearson.puzzlestrike.Player;
 import com.jaredpearson.puzzlestrike.PlayerManager;
+import com.jaredpearson.puzzlestrike.actions.Action;
 
 public class GamePlayController extends AbstractGameController implements Controller {
 	public GamePlayController(GameManager gameManager, PlayerManager playerManager) {
@@ -37,7 +37,7 @@ public class GamePlayController extends AbstractGameController implements Contro
 		}
 		
 		//execute the action from the player
-		if(game.isStarted() && game.isActivePlayer(player) && selectedActionName != null) {
+		if(selectedActionName != null) {
 			Action selectedAction = null;
 			
 			//check the game to see if the action specified is available
@@ -53,8 +53,8 @@ public class GamePlayController extends AbstractGameController implements Contro
 				throw new IllegalStateException("Action specified is not valid");
 			}
 			
-			//TODO: apply the action to the game
-			game.applyAction(selectedAction);
+			//apply the action to the game
+			game.applyAction(player, selectedAction);
 		}
 		
 		return new GamePlayResponse(game, player);

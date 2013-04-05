@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jaredpearson.puzzlestrike.Game;
 import com.jaredpearson.puzzlestrike.GameManager;
 import com.jaredpearson.puzzlestrike.PlayerManager;
+import com.jaredpearson.puzzlestrike.actions.JoinGameAction;
 
 public class GameJoinController extends AbstractGameController implements Controller {
 	
@@ -20,12 +21,9 @@ public class GameJoinController extends AbstractGameController implements Contro
 			throw new IllegalStateException("Game is currently not open.");
 		}
 		
-		game.addPlayer(getCurrentPlayer());
+		game.applyAction(getCurrentPlayer(), new JoinGameAction());
 		
-		//go ahead and start the game if it is full
-		if(game.isFull()) {
-			game.start();
-		}
+		game.addPlayer(getCurrentPlayer());
 		
 		return new JspView("redirect:/Game/" + getGame().getId());
 	}

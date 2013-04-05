@@ -3,6 +3,9 @@ package com.jaredpearson.puzzlestrike;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.jaredpearson.puzzlestrike.actions.ChooseCharacterAction;
+import com.jaredpearson.puzzlestrike.actions.JoinGameAction;
+
 public class GameTest {
 	@Test
 	public void testGameStart() {
@@ -48,6 +51,23 @@ public class GameTest {
 		
 		Player player3 = createMockPlayer();
 		game.addPlayer(player3); //expect to throw IllegalStateException when the game is full
+	}
+	
+	@Test
+	public void testGameFlow() {
+		
+		Game game = new Game();
+		
+		Player player1 = createMockPlayer();
+		game.setOwner(player1);
+		game.applyAction(player1, new JoinGameAction());
+		
+		Player player2 = createMockPlayer();
+		game.applyAction(player2, new JoinGameAction());
+		
+		//each player should select a character
+		game.applyAction(game.getActivePlayer(), new ChooseCharacterAction(GameCharacter.withName("Midori")));
+		game.applyAction(game.getActivePlayer(), new ChooseCharacterAction(GameCharacter.withName("Grave")));
 	}
 	
 	private static Player createMockPlayer() {
