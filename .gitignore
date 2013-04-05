@@ -1,3 +1,14 @@
 
+#osx
+.DS_Store
+
 #build stuff
 /target
+
+
+#eclipse junk
+/.classpath
+/.project
+/.settings
+/bin
+/build
