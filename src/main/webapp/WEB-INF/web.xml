@@ -23,6 +23,19 @@
         <servlet-class>com.jaredpearson.puzzlestrike.web.cometd.BayeuxInitializer</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
+    
+    <servlet>
+    	<servlet-name>baseRedirect</servlet-name>
+    	<servlet-class>com.jaredpearson.puzzlestrike.web.RedirectServlet</servlet-class>
+    	<init-param>
+    		<param-name>location</param-name>
+    		<param-value>/app</param-value>
+    	</init-param>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>baseRedirect</servlet-name>
+    	<url-pattern>/</url-pattern>
+    </servlet-mapping>
 	
     <servlet>
         <servlet-name>application</servlet-name>
