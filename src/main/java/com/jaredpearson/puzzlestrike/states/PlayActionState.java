@@ -23,8 +23,13 @@ public class PlayActionState extends StateAdapter implements State {
 		
 		ArrayList<Action> actions = new ArrayList<Action>();
 		
-		for(Chip chip : game.getActivePlayerContext().getHand()) {
-			actions.add(new GenericAction("Play " + chip.getName()));
+		//if the player requesting for actions is the current player, then
+		//we need to allow them to play any chips from their hand
+		if(game.isActivePlayer(player)) {
+			for(Chip chip : game.getActivePlayerContext().getHand()) {
+				actions.add(new GenericAction("Play " + chip.getName()));
+			}
+			
 		}
 		
 		return actions;
