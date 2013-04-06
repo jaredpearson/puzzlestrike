@@ -67,6 +67,9 @@ public class GameTest {
 		//each player should select a character
 		game.applyAction(game.getActivePlayer(), new ChooseCharacterAction(GameCharacter.withName("Midori")));
 		game.applyAction(game.getActivePlayer(), new ChooseCharacterAction(GameCharacter.withName("Grave")));
+		
+		Assert.assertEquals("Expected the first player to have the character selected", GameCharacter.withName("Midori"), game.getPlayers().get(0).getCharacter());
+		Assert.assertEquals("Expected the second player to have the character selected", GameCharacter.withName("Grave"), game.getPlayers().get(1).getCharacter());
 	}
 	
 	private static Player createMockPlayer() {
