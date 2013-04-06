@@ -4,6 +4,7 @@ import com.jaredpearson.puzzlestrike.actions.Action;
 import com.jaredpearson.puzzlestrike.states.AnteState;
 import com.jaredpearson.puzzlestrike.states.CharacterSelectState;
 import com.jaredpearson.puzzlestrike.states.CleanupState;
+import com.jaredpearson.puzzlestrike.states.EndGameState;
 import com.jaredpearson.puzzlestrike.states.EndTurnState;
 import com.jaredpearson.puzzlestrike.states.PlayActionState;
 import com.jaredpearson.puzzlestrike.states.PreGameState;
@@ -48,6 +49,8 @@ public class StateManager {
 		SetupPlayerBagState setupPlayerBagStateDefinition = new SetupPlayerBagState();
 		characterSelectStateDefinition.setNextState(setupPlayerBagStateDefinition);
 		
+		// turn loop start
+		
 		//4. ante
 		AnteState anteStateDefinition = new AnteState();
 		setupPlayerBagStateDefinition.setNextState(anteStateDefinition);
@@ -64,6 +67,12 @@ public class StateManager {
 		EndTurnState endTurnStateDefinition = new EndTurnState();
 		endTurnStateDefinition.setNextState(anteStateDefinition);
 		cleanupStateDefinition.setNextState(endTurnStateDefinition);
+		
+		//turn loop end
+		
+		//8. end game state
+		EndGameState endGameStateDefinition = new EndGameState();
+		endTurnStateDefinition.setEndGameState(endGameStateDefinition);
 		
 		return preGameStateDefinition;
 	}

@@ -14,6 +14,7 @@ public class Game {
 	private List<PlayerGameContext> players = new ArrayList<PlayerGameContext>();
 	private ChipPile chipPile;
 	private Integer currentPlayerIndex;
+	private Integer winner;
 	private StateManager stateManager;
 	
 	public Game() {
@@ -144,6 +145,21 @@ public class Game {
 			this.setCurrentPlayerIndex(0);
 		} else {
 			this.setCurrentPlayerIndex(this.getCurrentPlayerIndex() + 1);
+		}
+	}
+	
+	/**
+	 * Sets the winner of the game.
+	 */
+	public void setWinner(Player player) {
+		this.winner = this.players.indexOf(player);
+	}
+	
+	public PlayerGameContext getWinner() {
+		if(this.winner == null) {
+			return null;
+		} else {
+			return this.players.get(this.winner);
 		}
 	}
 	

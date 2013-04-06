@@ -1,11 +1,13 @@
 package com.jaredpearson.puzzlestrike;
 
+import com.jaredpearson.puzzlestrike.chips.GemChip;
+
 /**
  * Represents a set of chips
  * @author jared.pearson
  */
 public class ChipPile {
-	private static final Chip GEM1 = new GenericChip("1 Gem");
+	private static final GemChip GEM1 = new GemChip(1);
 	private static final Chip CRASH = new GenericChip("Crash Gem");
 	
 	/**
@@ -18,7 +20,7 @@ public class ChipPile {
 	/**
 	 * Takes a 1-Gem from the pile.
 	 */
-	public Chip takeGem1() {
+	public GemChip takeGem1() {
 		return GEM1;
 	}
 	

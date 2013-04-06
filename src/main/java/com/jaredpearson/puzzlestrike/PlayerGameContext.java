@@ -5,10 +5,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import com.jaredpearson.puzzlestrike.chips.GemChip;
+
 public class PlayerGameContext {
 	private Player player;
 	private GameCharacter character;
-	private List<Chip> gemPile = new ArrayList<Chip>();
+	private List<GemChip> gemPile = new ArrayList<GemChip>();
 	private List<Chip> bag = new ArrayList<Chip>();
 	private List<Chip> hand = new ArrayList<Chip>();
 	private List<Chip> discard = new ArrayList<Chip>();
@@ -47,8 +49,20 @@ public class PlayerGameContext {
 		this.hand = bag.subList(0, (bag.size() < handSize)? bag.size() : handSize);
 	}
 	
-	public void addToGemPile(Chip chip) {
+	public void addToGemPile(GemChip chip) {
 		this.gemPile.add(chip);
+	}
+	
+	/**
+	 * Gets the value of the gem pile
+	 */
+	public int getGemPileValue() {
+		int value = 0;
+		for(GemChip chip : this.gemPile) {
+			value += chip.getGemValue();
+		}
+		
+		return value;
 	}
 	
 	public void discardHand() {
