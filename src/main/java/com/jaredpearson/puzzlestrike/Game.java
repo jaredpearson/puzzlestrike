@@ -102,7 +102,13 @@ public class Game {
 	 * Determines if the specified player is in the game.
 	 */
 	public boolean containsPlayer(Player player) {
-		return this.players.contains(player);
+		for(PlayerGameContext context : this.players) {
+			if(context.getPlayer().getId().equals(player.getId()))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public Player getActivePlayer() {
