@@ -23,8 +23,6 @@ public class GameJoinController extends AbstractGameController implements Contro
 		
 		game.applyAction(getCurrentPlayer(), new JoinGameAction());
 		
-		game.addPlayer(getCurrentPlayer());
-		
 		return new JspView("redirect:/Game/" + getGame().getId());
 	}
 
