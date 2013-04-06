@@ -136,6 +136,17 @@ public class Game {
 		this.currentPlayerIndex = value;
 	}
 	
+	/**
+	 * Goes to the next player
+	 */
+	public void goToNextPlayer() {
+		if(this.getCurrentPlayerIndex() + 1 >= this.getPlayerCount()) {
+			this.setCurrentPlayerIndex(0);
+		} else {
+			this.setCurrentPlayerIndex(this.getCurrentPlayerIndex() + 1);
+		}
+	}
+	
 	public void selectCharacter(Player player, GameCharacter character) {
 		getActivePlayerContext().setCharacter(character);
 	}
