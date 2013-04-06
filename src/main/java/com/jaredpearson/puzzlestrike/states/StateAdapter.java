@@ -29,7 +29,6 @@ public abstract class StateAdapter implements State {
 	 * Override this method to execute some code on entry of this state. The base
 	 * method is empty.
 	 */
-	@Override
 	public void onEntry(Game game) {	
 	}
 }

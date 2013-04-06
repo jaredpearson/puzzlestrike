@@ -73,7 +73,6 @@ public class GameCharacter {
 			this.name = name;
 		}
 		
-		@Override
 		public String getName() {
 			return name;
 		}

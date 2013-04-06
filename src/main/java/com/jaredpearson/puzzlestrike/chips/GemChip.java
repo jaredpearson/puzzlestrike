@@ -21,7 +21,6 @@ public class GemChip implements Chip {
 		return gemValue;
 	}
 	
-	@Override
 	public String getName() {
 		return getGemValue() + " Chip";
 	}
