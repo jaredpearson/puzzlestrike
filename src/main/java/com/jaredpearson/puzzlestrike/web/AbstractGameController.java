@@ -22,25 +22,32 @@ public abstract class AbstractGameController implements Controller {
 		this.playerManager = playerManager;
 	}
 	
+	/**
+	 * Gets the player that is currently making the request
+	 */
 	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
 	
+	/**
+	 * Gets the game currently associated to this request.
+	 */
 	public Game getGame() {
 		return game;
 	}
 
 	public View handle(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		Matcher matcher = Pattern.compile("^/Game/([0-9]+)(/.*)?$").matcher(request.getPathInfo());
-		if(!matcher.find()) {
-			throw new IllegalStateException("Invalid URL format");
-		}
-		
 		//get the current player
 		Player player = WebUtils.getPlayer(playerManager, request);
 		if(player == null) {
 			throw new IllegalStateException("User is not logged in");
+		}
+		
+		//Get the game ID from the path info
+		Matcher matcher = Pattern.compile("^/Game/([0-9]+)(/.*)?$").matcher(request.getPathInfo());
+		if(!matcher.find()) {
+			throw new IllegalStateException("Invalid URL format");
 		}
 		
 		//get the requested game

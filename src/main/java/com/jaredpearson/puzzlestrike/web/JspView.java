@@ -7,6 +7,15 @@ import javax.servlet.http.HttpServletResponse;
 public class JspView implements View {
 	private String name;
 	
+	/**
+	 * Represents a view with the specified name.
+	 * <p>
+	 * The name specified is the name mapped to a JSP file, using the default
+	 * "/WEB-INF/views" + name + ".jsp" path.
+	 * <p>
+	 * If the name begins with "redirect:" then the response is a redirect to the 
+	 * path specified after "redirect:"
+	 */
 	public JspView(String name) {
 		this.name = name;
 	}
