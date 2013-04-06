@@ -2,6 +2,10 @@ package com.jaredpearson.puzzlestrike.states;
 
 import com.jaredpearson.puzzlestrike.Game;
 
+/**
+ * End of the turn step, which switches to the next player
+ * @author jared.pearson
+ */
 public class EndTurnState extends StateAdapter implements State {
 	private State nextState;
 	

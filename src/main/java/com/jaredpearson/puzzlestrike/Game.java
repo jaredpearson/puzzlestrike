@@ -176,6 +176,9 @@ public class Game {
 		return chipPile;
 	}
 	
+	/**
+	 * Tells the game to go to the specified state.
+	 */
 	public void setState(State state) {
 		this.stateManager.setState(state);
 	}

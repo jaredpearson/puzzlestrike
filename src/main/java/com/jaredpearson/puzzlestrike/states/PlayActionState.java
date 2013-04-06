@@ -8,6 +8,10 @@ import com.jaredpearson.puzzlestrike.Game;
 import com.jaredpearson.puzzlestrike.Player;
 import com.jaredpearson.puzzlestrike.actions.Action;
 
+/**
+ * State when the player gets to play an action.
+ * @author jared.pearson
+ */
 public class PlayActionState extends StateAdapter implements State {
 	private State nextState;
 	

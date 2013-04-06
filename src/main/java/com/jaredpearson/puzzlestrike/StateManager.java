@@ -37,24 +37,30 @@ public class StateManager {
 	}
 	
 	private static State initializeState() {
-		//create the states that the game will be in
+		//1. pre-game state
 		PreGameState preGameStateDefinition = new PreGameState();
 		
+		//2. character selection state
 		CharacterSelectState characterSelectStateDefinition = new CharacterSelectState();
 		preGameStateDefinition.setNextState(characterSelectStateDefinition);
 		
+		//3. setup player bag state
 		SetupPlayerBagState setupPlayerBagStateDefinition = new SetupPlayerBagState();
 		characterSelectStateDefinition.setNextState(setupPlayerBagStateDefinition);
 		
+		//4. ante
 		AnteState anteStateDefinition = new AnteState();
 		setupPlayerBagStateDefinition.setNextState(anteStateDefinition);
 		
+		//5. play action
 		PlayActionState playActionStateDefinition = new PlayActionState();
 		anteStateDefinition.setNextState(playActionStateDefinition);
 		
+		//6. cleanup
 		CleanupState cleanupStateDefinition = new CleanupState();
 		playActionStateDefinition.setNextState(cleanupStateDefinition);
 		
+		//7. end turn state
 		EndTurnState endTurnStateDefinition = new EndTurnState();
 		endTurnStateDefinition.setNextState(anteStateDefinition);
 		cleanupStateDefinition.setNextState(endTurnStateDefinition);

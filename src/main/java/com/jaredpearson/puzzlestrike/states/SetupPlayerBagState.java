@@ -4,6 +4,10 @@ import com.jaredpearson.puzzlestrike.ChipPile;
 import com.jaredpearson.puzzlestrike.Game;
 import com.jaredpearson.puzzlestrike.PlayerGameContext;
 
+/**
+ * State to setup the player's bag state
+ * @author jared.pearson
+ */
 public class SetupPlayerBagState extends StateAdapter implements State {
 	private State nextState;
 	
